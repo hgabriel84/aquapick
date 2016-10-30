@@ -12,7 +12,7 @@ js/script.js
 js/jquery.validate.min.js
 js/jquery-1.11.3.min.js
 fonts/BetaSansBold.ttf
-fonts/BetaSansNormal.ttf
+fonts/BetaSansNorm.ttf
 images/bg.png
 images/bt_play.png
 images/logo.png
