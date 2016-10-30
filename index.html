@@ -16,12 +16,12 @@
 	<section id="wrapper">
 		<section id="welcome" class="page">
 			<section id="welcome_content" class="content">
-				<section id="splash_logo" class="splash"></section>
+				<section class="splash splash_logo"></section>
 				<section>
 					<p>bem vindo</p>
 				</section>
 			</section>
-			<section class="logo_biofisa"></section>
+			<section id="config" class="logo_biofisa"></section>
 		</section>
  		<section id="game" class="page">
  			<section class="highscore">
@@ -29,73 +29,86 @@
  					<p>ranking</p>
  				</div>
  				<div class="ranking">
- 					<span id="rank_1"></span>
- 					<span id="rank_2"></span>
- 					<span id="rank_3"></span>
+ 					<span class="rank_1"></span>
+ 					<span class="rank_2"></span>
+ 					<span class="rank_3"></span>
  				</div>
  			</section>
-			<section class="content">
+			<section id="game_intro" class="content">
 				<section id="bt_play" class="splash"></section>
 				<section>
 					<p>Faça <span id="nr_pairs"></span> pares para finalizar o jogo.</p>
 				</section>
 			</section>
+			<section id="cards_wrapper">
+				<section id="cards">
+					<div class="card">
+						<div class="face front"></div>
+						<div class="face back"></div>
+					</div>
+				</section>
+				<section id="crono">
+					<section id="top">
+						<p>crono</p>
+					</section>
+					<section id="time">
+						<p id="seconds">0</p>
+						<p>seg.</p>
+					</section>
+				</section>
+			</section>
 			<section class="logo_biofisa"></section>
 		</section>
-<!-- 		<section id="gameStats">
-			<div class="bar">
-				<p id="highscores">HIGHSCORES: <span id="top"></span></p>
-			</div>
-		</section> -->
-		<!-- #gameStats -->
-
-<!-- 		<section id="game">
-			<section id="gameIntro">
-				<p><a id="gamePlay" class="button" href="">JOGAR</a></p>
-				<p class="nrPairs">Faça <span id="nrPairs"></span> pares para finalizar o jogo.</p>
+		<section id="thanks" class="page">
+ 			<section class="highscore">
+ 				<div class="ranking_label">
+ 					<p>ranking</p>
+ 				</div>
+ 				<div class="ranking">
+ 					<span class="rank_1"></span>
+ 					<span class="rank_2"></span>
+ 					<span class="rank_3"></span>
+ 				</div>
+ 			</section>
+			<section id="thanks_content" class="content">
+				<section class="splash splash_logo"></section>
+				<section>
+					<p>Está convidado para a entrega<br/>de prémios no sábado pelas 17h.</p>
+				</section>
 			</section>
-			<section id="gameOptions">
-				<p id="btConfig">config</p>
-			</section> -->
-			<!-- #gameIntro -->
-		<!-- </section> -->
-		<!-- #game -->
-
-		<!-- <div class="modal fade" id="modal" role="dialog">
+			<section id="config" class="logo_biofisa"></section>
+		</section>
+		<div class="modal fade" id="modal" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"></button>
-						<h4 class="modal-title">Parabéns!</h4>
+						<h4 class="modal-title">Obrigado pela participação</h4>
 					</div>
 					<div class="modal-body">
-						<p>Demorou <b><span class="gameScore"></b>.</p>
+						<p>Demorou <b><span id="gameScore"></b>.</p>
 						<p>Para se habilitar a ganhar um prémio insira os seus dados:</p>
-						<form id="form">
+						<form id="in_form">
 							<div class="form-group">
-								<label  class="control-label" for="inputName">Nome</label>
+								<label  class="control-label" for="in_name">Nome</label>
 								<div class="input-group">
-									<input type="text" class="form-control" id="inputName" name="inputName" placeholder="Insira o seu nome"/>
+									<input type="text" class="form-control" id="in_name" name="in_name" placeholder="Insira o seu nome"/>
 								</div>
-								<label  class="control-label" for="inputCAMV">CAMV</label>
+								<label  class="control-label" for="in_clinic">Clínica</label>
 								<div class="input-group">
-									<input type="text" class="form-control" id="inputCAMV" name="inputCAMV" placeholder="Insira o seu CAMV"/>
+									<input type="text" class="form-control" id="in_clinic" name="in_clinic" placeholder="Insira a sua clínica"/>
 								</div>
-								<label  class="control-label" for="inputAddress">Morada</label>
+								<label  class="control-label" for="in_address">Localidade</label>
 								<div class="input-group">
-									<input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Insira a sua morada"/>
+									<input type="text" class="form-control" id="in_address" name="in_address" placeholder="Insira a sua localidade"/>
 								</div>
-								<label  class="control-label" for="inputEmail">E-mail</label>
+								<label  class="control-label" for="in_phone">Contacto telefónico</label>
 								<div class="input-group">
-									<input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="Insira o seu e-mail"/>
+									<input type="text" class="form-control" id="in_phone" name="in_phone" placeholder="Insira o seu contacto telefónico"/>
 								</div>
-								<label  class="control-label" for="inputPhone">Telefone</label>
+								<label  class="control-label" for="in_email">E-mail</label>
 								<div class="input-group">
-									<input type="text" class="form-control" id="inputPhone" name="inputPhone" placeholder="Insira o seu telefone"/>
-								</div>
-								<label  class="control-label" for="inputNif">NIF</label>
-								<div class="input-group">
-									<input type="text" class="form-control" id="inputNif" name="inputNif" placeholder="Insira o seu NIF"/>
+									<input type="text" class="form-control" id="in_email" name="in_email" placeholder="Insira o seu e-mail"/>
 								</div>
 							</div>
 						</form>
@@ -105,10 +118,9 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 		<!-- #modal -->
-
-<!-- 		<div class="modal fade" id="modalConfig" role="dialog">
+		<div class="modal fade" id="modal_config" role="dialog">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -116,58 +128,41 @@
 						<h4 class="modal-title">Opções</h4>
 					</div>
 					<div class="modal-body">
-						<section id="modalConfigPassword">
-							<form id="formPassword">
+						<section id="config_password">
+							<form id="in_form_password">
 								<p>Insira password</p>
-								<input type="password" id="inPassword"/>
-								<button type="button" id="btPassword">OK</button>
+								<input type="password" id="in_password"/>
+								<button type="button" id="bt_password">OK</button>
 							</form>
 						</section>
-						<section id="modalConfigInner">
+						<section id="config_inner">
 							<section id="config">
-								<form id="formPairs">
+								<form id="in_form_pairs">
 									<p>Número de pares para finalizar jogo: </p>
-									<input type="text" id="inNrPairs" name="inNrPairs" />
-									<button type="button" id="btSetPairs">OK</button>
+									<input type="text" id="in_nr_pairs" name="in_nr_pairs" />
+									<button type="button" id="bt_pairs">OK</button>
 								</form>
 							</section>
 
 							<section id="csv" style="margin-top: 20px;">
-								<button type="button" id="btExportCSV">Exportar contactos</button>
+								<button type="button" id="bt_export_csv">Exportar contactos</button>
 							</section>
 
-							<section id="modalConfigHighscores">
-								<p>HIGHSCORES: <span id="configHighscores"></span></p>
+							<section>
+								<p>HIGHSCORES: <span id="config_highscores"></span></p>
 							</section>
 
 							<section id="reset" style="margin-top: 80px;">
-								<button type="button" id="btReset" style="background-color:red; color:white;">Apagar dados</button>
+								<button type="button" id="bt_reset" style="background-color:red; color:white;">Apagar dados</button>
 							</section>							
 						</section>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" id="btClose">Fechar</button>
+						<button type="button" class="btn btn-primary" id="bt_close">Fechar</button>
 					</div>
 				</div>
 			</div>
-		</div> -->
-		<!-- #modal config-->
-
-<!-- 		<section id="cardsWrapper"> -->
-<!-- 			<section id="options">
-				<div class="bar">
-					<p><a id="stop" class="button" href="">SAIR</a></p>
-				</div>
-			</section>
-			<section id="cards">
-				<div class="card">
-					<div class="face front"></div>
-					<div class="face back"></div>
-				</div>
-			</section> -->
-			<!-- .card -->
-<!-- 		</section> -->
-		<!-- #cards -->
+		</div>
 	</section>
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/jquery.validate.min.js"></script>	
