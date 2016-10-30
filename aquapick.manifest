@@ -1,0 +1,31 @@
+CACHE MANIFEST
+ 
+# Version: 1.00
+
+CACHE:
+index.html
+css/bootstrap.min.css
+css/bootstrap-theme.min.css
+css/styles.css
+css/css3transition.css
+js/bootstrap.min.js
+js/script.js
+js/jquery.validate.min.js
+js/jquery-1.11.3.min.js
+fonts/BetaSansBold.ttf
+fonts/BetaSansNormal.ttf
+images/bg.png
+images/bt_play.png
+images/logo.png
+images/logo_biofisa.jpg
+images/pair01.png
+images/pair02.png
+images/pair03.png
+images/pair04.png
+images/pair05.png
+images/pair06.png
+images/pair07.png
+images/pair08.png
+images/pair09.png
+images/pair10.png
+images/splash.jpg
