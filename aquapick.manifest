@@ -14,9 +14,9 @@ js/jquery-1.11.3.min.js
 fonts/BetaSansBold.ttf
 fonts/BetaSansNorm.ttf
 images/bg.png
-images/bt_play.jpg
+images/bt_play.png
 images/logo.png
-images/logo_biofisa.jpg
+images/logo_biofisa.png
 images/pair01.png
 images/pair02.png
 images/pair03.png
@@ -27,4 +27,4 @@ images/pair07.png
 images/pair08.png
 images/pair09.png
 images/pair10.png
-images/splash.jpg
+images/splash.png

@@ -39,19 +39,19 @@ body {
   background-position: center;
 }
 .splash_logo {
-  background-image: url(../images/splash.jpg);
+  background-image: url(../images/splash.png);
 }
 #bt_play {
-  background-image: url(../images/bt_play.jpg);
+  background-image: url(../images/bt_play.png);
 }
 #welcome p {
-  color: #001F20;
+  color: #0066CC;
   font-family: bsn;
   font-size: 46px;
   text-transform: uppercase;
 }
 .content p {
-  color: #001F20;
+  color: #0066CC;
   font-family: bsn;
   font-size: 36px;
 }
@@ -59,7 +59,7 @@ body {
   position: fixed;
   bottom: 0;
   height: 60px;
-  background-image: url(../images/logo_biofisa.jpg);
+  background-image: url(../images/logo_biofisa.png);
   width: 100px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -80,13 +80,13 @@ body {
 }
 .ranking_label {
   width: 14%;
-  background-color: #000;
+  background-color: #000066;
   font-family: bsb;
   text-transform: uppercase;
 }
 .ranking {
   font-family: bsn;
-  color: #000;
+  color: #000066;
 }
 .ranking span {
   padding-left: 20px;
@@ -102,7 +102,7 @@ body {
   top: 0;
   padding-right: 5px;
   text-transform: uppercase;
-  color: #231F20;
+  color: #000066;
   font-family: bsn;
 }
 #crono #top {
@@ -129,7 +129,7 @@ body {
   display: inline-block;
 }
 #modal, #modal_config {
-  color: #000;
+  color: #0066CC;
 }
 .modal-content {
   width: 400px;
