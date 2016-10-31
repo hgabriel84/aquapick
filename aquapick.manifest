@@ -1,6 +1,6 @@
 CACHE MANIFEST
  
-# Version: 1.00
+# Version: 1.01
 
 CACHE:
 index.html
@@ -14,7 +14,7 @@ js/jquery-1.11.3.min.js
 fonts/BetaSansBold.ttf
 fonts/BetaSansNorm.ttf
 images/bg.png
-images/bt_play.png
+images/bt_play.jpg
 images/logo.png
 images/logo_biofisa.jpg
 images/pair01.png

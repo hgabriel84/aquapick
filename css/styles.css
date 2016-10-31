@@ -100,6 +100,7 @@ body {
   height: 100%;
   right: 0;
   top: 0;
+  padding-right: 5px;
   text-transform: uppercase;
   color: #231F20;
   font-family: bsn;
