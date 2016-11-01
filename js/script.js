@@ -1,6 +1,6 @@
 var score;
 var cardsmatched;
-var crono = 0;
+var crono;
 var page = $('.page');
 var pagenameWelcome = 'welcome';
 var pagenameGame = 'game';
@@ -190,6 +190,7 @@ function startGame() {
   uiCards.html("<div class='card'><div class='face front'></div><div class='face back'></div></div>");
   score = new Date().getTime();
   cardsmatched = 0;
+  crono = 0;
 
   if (playGame == false) {
     // set global variable
