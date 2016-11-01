@@ -191,6 +191,7 @@ function startGame() {
   score = new Date().getTime();
   cardsmatched = 0;
   crono = 0;
+  uiSeconds.html(0);
 
   if (playGame == false) {
     // set global variable
