@@ -215,19 +215,19 @@ function startGame() {
     if(uiCards.height() > uiCards.width()) {
       cardWidth = (uiCards.width() - 100) / 5;
       cardHeight = cardWidth;
-      var vpad = (uiCards.height() - (4 * cardWidth)) / 5;
+      var vpad = 0; //(uiCards.height() - (4 * cardWidth)) / 5;
       var hpad = 0;
     } else {
       // landscape mode
       cardHeight = uiCards.height() / 4;
       cardWidth = cardHeight;
-      var hpad = ((uiCards.width() - 100) - (5 * cardWidth)) / 6;
+      var hpad = 0; //((uiCards.width() - 100) - (5 * cardWidth)) / 6;
       var vpad = 0;
     }
 
     // initialize each card's position
     uiCards.children().each(function(index) {
-      // align the cards to be 5x6 ourselves.
+      // align the cards to be 4x5 ourselves.
       $(this).css({
         "width": cardWidth,
         "height": cardHeight,
