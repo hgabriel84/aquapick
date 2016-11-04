@@ -1,6 +1,6 @@
 CACHE MANIFEST
  
-# Version: 1.03
+# Version: 1.04
 
 CACHE:
 index.html
@@ -11,6 +11,7 @@ js/bootstrap.min.js
 js/script.js
 js/jquery.validate.min.js
 js/jquery-1.11.3.min.js
+js/stopwatch.js
 fonts/BetaSansBold.ttf
 fonts/BetaSansNorm.ttf
 images/bg.png

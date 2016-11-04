@@ -1,6 +1,4 @@
-var score;
 var cardsmatched;
-var crono;
 var page = $('.page');
 var pagenameWelcome = 'welcome';
 var pagenameGame = 'game';
@@ -16,14 +14,16 @@ var uiCards = $('#cards');
 var uiRank1 = $('.rank_1');
 var uiRank2 = $('.rank_2');
 var uiRank3 = $('.rank_3');
-var uiScore = $('#gameScore');
+var uiGameScore = $('#gameScore');
+var uiScore = $('#score');
 var uiConfig = $('#config');
+var uiRanking = $('#ranking');
 var uiModal = $('#modal');
 var uiModalConfig = $('#modal_config');
+var uiModalHighscores = $('#modal_highscores');
 var uiConfigPassword = $('#config_password');
 var uiConfigInner = $('#config_inner');
-var uiConfigHighscores = $('#config_highscores');
-var uiSeconds = $('#seconds');
+var uiRankingHighscores = $('#ranking_highscores');
 var inForm = $('#in_form');
 var inFormPassword = $('#in_form_password');
 var inFormPairs = $('#in_form_pairs');
@@ -39,7 +39,7 @@ var btSetNrPairs = $('#bt_pairs');
 var btExportCSV = $('#bt_export_csv');
 var btReset = $('#bt_reset');
 var btPassword = $('#bt_password');
-var btClose = $('#bt_close');
+var btClose = $('.bt_close');
 
 //create deck array
 var matchingGame = {};
@@ -72,12 +72,11 @@ function init() {
   if(localStorage.highscores) {
     // rankings will only show the 3 best scores
     var cnt = 3;
-    var topScoresConfig = "<br/>";
+    var topScoresConfig = "";
     var highscores = JSON.parse(localStorage["highscores"]);
 
     $.each(highscores, function(key, value) {
-      var timeText = getFriendlyTime(value.time);
-      var rank = (key + 1) + " " + value.name + " " + timeText;
+      var rank = (key + 1) + " " + value.name + " " + value.time;
       if (cnt > 0) {
         if(key == 0) {
           uiRank1.html(rank);
@@ -87,10 +86,10 @@ function init() {
           uiRank3.html(rank);
         }
       }
-      topScoresConfig += rank + "<br/>";
+      topScoresConfig += (key + 1) + "º<br/><b>" + value.name + "</b><br/>" + value.clinic + "<br/><br/>";
       --cnt;
     });
-    uiConfigHighscores.html(topScoresConfig);
+    uiRankingHighscores.html(topScoresConfig);
   }
 
   //set number of pairs needed to win game
@@ -159,6 +158,12 @@ function init() {
     uiConfigInner.hide();
   });
 
+  // show highscores modal
+  uiRanking.click(function(e) {
+    e.preventDefault();
+    uiModalHighscores.modal('show');
+  });
+
   // validate password and show config interface
   btPassword.click(function(e) {
     e.preventDefault();
@@ -188,10 +193,7 @@ function startGame() {
   matchingGame.deck = ['pair01', 'pair01', 'pair02', 'pair02', 'pair03', 'pair03', 'pair04', 'pair04', 'pair05', 'pair05', 'pair06', 'pair06', 'pair07', 'pair07', 'pair08', 'pair08', 'pair09', 'pair09', 'pair10', 'pair10', ];
   uiCardsWrapper.show();
   uiCards.html("<div class='card'><div class='face front'></div><div class='face back'></div></div>");
-  score = new Date().getTime();
   cardsmatched = 0;
-  crono = 0;
-  uiSeconds.html(0);
 
   if (playGame == false) {
     // set global variable
@@ -246,7 +248,8 @@ function startGame() {
       $(this).click(selectCard);
     });
   };
-  timer();
+
+  $.APP.startTimer();
 }
 
 // shuffle cards
@@ -296,29 +299,11 @@ function removeTookCards() {
   } else {
     // game over, no more cards to flip
     $(".card-removed").remove();
-    score = new Date().getTime() - score;
-    uiScore.html(getFriendlyTime(score));
+    $.APP.stopTimer();
     playGame = false;
     uiCardsWrapper.hide();
-    uiModal.modal('show');
   }
 }
-
-// gets millis in friendly format (ss dd)
-function getFriendlyTime(time) {
-  var secs = Math.floor((time) / 1000);
-  var decs = time.toString().substring(time.toString().length - 3, time.toString().length - 1);
-  return secs + "s" + decs;
-}
-
-function timer() {
-    if (playGame) {
-      scoreTimeout = setTimeout(function() {
-        uiSeconds.html(++crono);   
-        timer();
-      }, 1000);
-    };
-};
 
 // save user data in cookie with json. if top10 it'll go to highscores
 function save() {
@@ -335,11 +320,14 @@ function save() {
     phone = phone.substring(phone.indexOf('=') + 1);
     var email = inEmail.val();
     email = email.substring(email.indexOf('=') + 1);
-    var time = score;
+    var time = uiGameScore.html();
+    var score = uiScore.val();
 
     //save current score
     var currentScore = new Object();
     currentScore.name = name;
+    currentScore.clinic = clinic;
+    currentScore.score = score;
     currentScore.time = time;
 
     //save user data
@@ -349,8 +337,8 @@ function save() {
     contact.address = address;
     contact.phone = phone;
     contact.email = email;
-    contact.score = getFriendlyTime(time);
     contact.time = time;
+    contact.score = score;
 
     //check if is highscore and save it
     var highscores = JSON.parse(localStorage["highscores"]);
@@ -360,16 +348,15 @@ function save() {
     contacts.push(contact);
 
     highscores.sort(function(a, b) {
-      return parseFloat(a.time) - parseFloat(b.time);
+      return parseFloat(a.score) - parseFloat(b.score);
     });
     contacts.sort(function(a, b) {
-      return parseFloat(a.time) - parseFloat(b.time);
+      return parseFloat(a.score) - parseFloat(b.score);
     });
 
     // has 6 highscores, time to let go the worst score
     if(highscores.length > 5) {
       highscores.pop();
-      contacts.pop();
     }
 
     // rankings will only show the 3 best scores
@@ -377,8 +364,7 @@ function save() {
     var topScoresConfig = "<br/>";
 
     $.each(highscores, function(key, value) {
-      var timeText = getFriendlyTime(value.time);
-      var rank = (key + 1) + " " + value.name + " " + timeText;
+      var rank = (key + 1) + " " + value.name + " " + value.time;
       if (cnt > 0) {
         if(key == 0) {
           uiRank1.html(rank);
@@ -388,10 +374,10 @@ function save() {
           uiRank3.html(rank);
         }
       }
-      topScoresConfig += rank + "<br/>";
+      topScoresConfig += (key + 1) + "º<br/>" + value.name + "<br/>" + value.clinic;
       --cnt;
     });
-    uiConfigHighscores.html(topScoresConfig);
+    uiRankingHighscores.html(topScoresConfig);
 
     // save highscores in localstorage
     localStorage["highscores"] = JSON.stringify(highscores);

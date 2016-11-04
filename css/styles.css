@@ -63,7 +63,7 @@ body {
   width: 100px;
   background-size: contain;
   background-repeat: no-repeat;
-  right: 0;
+  right: 30px;
 }
 .highscore {
   position: fixed;
@@ -100,7 +100,7 @@ body {
   height: 100%;
   right: 0;
   top: 0;
-  padding-right: 5px;
+  padding-right: 30px;
   text-transform: uppercase;
   color: #000066;
   font-family: bsn;
@@ -115,7 +115,7 @@ body {
   font-size: 26px;
   text-align: right;
 }
-#crono #time #seconds {
+#crono #time #crono_s, #crono #time #crono_m, #crono #time #crono_ms {
   font-size: 60px;
   text-align: right;
 }
@@ -128,14 +128,18 @@ body {
   cursor: pointer;
   display: inline-block;
 }
-#modal, #modal_config {
+#modal, #modal_config, #modal_highscores {
   color: #0066CC;
+  font-family: bsn;
 }
 .modal-content {
   width: 400px;
 }
 .modal-body {
   text-align: left;
+}
+#ranking_highscores {
+  font-size: 16px;
 }
 .face {
   width: 100%;

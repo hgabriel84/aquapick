@@ -13,6 +13,7 @@
 </head>
 
 <body>
+	<input type='hidden' name='score' value='0' id="score">
 	<section id="wrapper">
 		<section id="welcome" class="page">
 			<section id="welcome_content" class="content">
@@ -25,7 +26,7 @@
 		</section>
  		<section id="game" class="page">
  			<section class="highscore">
- 				<div class="ranking_label">
+ 				<div class="ranking_label" id="ranking">
  					<p>ranking</p>
  				</div>
  				<div class="ranking">
@@ -52,8 +53,11 @@
 						<p>crono</p>
 					</section>
 					<section id="time">
-						<p id="seconds">0</p>
+						<p id="crono_m">0</p>
+						<p>min.</p>
+						<p id="crono_s">0</p>
 						<p>seg.</p>
+						<p id="crono_ms">0</p>
 					</section>
 				</section>
 			</section>
@@ -148,17 +152,32 @@
 								<button type="button" id="bt_export_csv">Exportar contactos</button>
 							</section>
 
-							<section>
-								<p>HIGHSCORES: <span id="config_highscores"></span></p>
-							</section>
-
 							<section id="reset" style="margin-top: 80px;">
 								<button type="button" id="bt_reset" style="background-color:red; color:white;">Apagar dados</button>
 							</section>							
 						</section>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" id="bt_close">Fechar</button>
+						<button type="button" class="btn btn-primary bt_close">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #modal -->
+		<div class="modal fade" id="modal_highscores" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"></button>
+						<h4 class="modal-title">RANKING FINAL</h4>
+					</div>
+					<div class="modal-body">
+						<section>
+							<p><span id="ranking_highscores"></span></p>
+						</section>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary bt_close">Fechar</button>
 					</div>
 				</div>
 			</div>
@@ -166,6 +185,7 @@
 	</section>
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/jquery.validate.min.js"></script>	
+	<script src="js/stopwatch.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/bootstrap.min.js"></script>	
 </body>
