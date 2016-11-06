@@ -86,7 +86,7 @@ function init() {
           uiRank3.html(rank);
         }
       }
-      topScoresConfig += (key + 1) + "º<br/><b>" + value.name + "</b><br/>" + value.clinic + "<br/><br/>";
+      topScoresConfig += "<p>" + (key + 1) + "º " + value.name + "</p>" + value.clinic + "<br/>";
       --cnt;
     });
     uiRankingHighscores.html(topScoresConfig);

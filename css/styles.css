@@ -76,20 +76,25 @@ body {
 .highscore div {
   float: left;
   height: 100%;
-  font-size: 24px;
 }
 .ranking_label {
   width: 14%;
   background-color: #000066;
   font-family: bsb;
   text-transform: uppercase;
+  font-size: 24px;
 }
 .ranking {
   font-family: bsn;
   color: #000066;
+  font-size: 14px;
 }
 .ranking span {
   padding-left: 20px;
+}
+#ranking_highscores p {
+  font-family: bsb;
+  font-size: 18px;
 }
 #cards {
   position: relative;
